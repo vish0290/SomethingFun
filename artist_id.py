@@ -2,8 +2,8 @@ import requests, re
 from bs4 import BeautifulSoup
 
 
-def get_id(artist):    
-    url = ("https://www.google.com/search?q="+artist+"spotify")
+def get_id(val):    
+    url = ("https://www.google.com/search?q="+val+"spotify")
     page = requests.get(url)
 
     soup = BeautifulSoup(page.content, 'html.parser') 
@@ -13,6 +13,7 @@ def get_id(artist):
         if a.startswith('/url?q=https://open.spotify.com/artist/'):
             url.append(a)
             
+    
     data = url[0]
     data = data[7:61]
     md = data.split('/')
