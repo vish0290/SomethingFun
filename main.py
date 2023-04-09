@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from artist_id import get_id
+
 app = Flask(__name__)
 
 @app.route('/')
